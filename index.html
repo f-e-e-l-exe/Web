@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ดูวิดีโอจาก Google Drive</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+        }
+
+        iframe {
+            border: none;
+            width: 80%;
+            height: 80vh;
+            max-width: 1200px;
+        }
+
+        .video-title {
+            text-align: center;
+            color: white;
+            margin-top: 20px;
+            font-size: 24px;
+        }
+
+        .video-list {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .video-list button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .video-list button:hover {
+            background-color: #555;
+        }
+
+        .fullscreen-btn {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .fullscreen-btn:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>เว็บไซต์ของฉัน: เลือกดูวิดีโอจาก Google Drive</h1>
+    </header>
+
+    <div class="video-container">
+        <!-- ฝัง iframe ที่จะใช้แสดงวิดีโอ -->
+        <iframe id="video-frame" src="https://drive.google.com/file/d/1NWX8ZXfS1tvby6Bp4T-AcGLpSAwYxoe_/preview" allow="autoplay" allowfullscreen></iframe>
+    </div>
+
+    <div class="video-title">
+        <p>เลือกวิดีโอที่คุณต้องการดู</p>
+    </div>
+
+    <div class="video-list">
+        <!-- ปุ่มเลือกวิดีโอ -->
+        <button onclick="changeVideo('1NWX8ZXfS1tvby6Bp4T-AcGLpSAwYxoe_')">วิดีโอ 1</button>
+        <button onclick="changeVideo('1kCglCNrIHCBXGSqQ6BwASsTWh0HXhCvp')">วิดีโอ 2</button>
+        <button onclick="changeVideo('1rbWDN8O6wNVedf6oqIoamklUZfl4SLZt')">วิดีโอ 3</button>
+        <button onclick="changeVideo('4LQK1OD4M1sOYls2Zjga8G24vJUtzzHk4')">วิดีโอ 4</button>
+        <button onclick="changeVideo('1I6d_A54-QNOWH4-bSHTbo01e0x1SaYNf')">วิดีโอ 5</button>
+    </div>
+
+    <div class="fullscreen-btn-container">
+        <button class="fullscreen-btn" onclick="toggleFullscreen()">เปิด/ปิด โหมดเต็มหน้าจอ</button>
+    </div>
+
+    <script>
+        // ฟังก์ชันเพื่อเปลี่ยนวิดีโอที่แสดงใน iframe
+        function changeVideo(videoId) {
+            var iframe = document.getElementById('video-frame');
+            iframe.src = "https://drive.google.com/file/d/" + videoId + "/preview";
+        }
+
+        // ฟังก์ชันเพื่อเปิด/ปิดโหมดเต็มหน้าจอ
+        function toggleFullscreen() {
+            var iframe = document.getElementById('video-frame');
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+                iframe.msRequestFullscreen();
+            }
+        }
+    </script>
+
+</body>
+</html>
