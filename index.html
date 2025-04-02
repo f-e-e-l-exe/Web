@@ -23,7 +23,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 60vh; /* ใช้ 60% ของความสูงหน้าจอ */
             background-color: #000;
             width: 100%;
         }
@@ -46,6 +46,7 @@
 
         .video-list {
             display: flex;
+            flex-wrap: wrap; /* ทำให้ปุ่มแสดงในหลายบรรทัดถ้าจำเป็น */
             justify-content: center;
             margin-top: 20px;
         }
@@ -69,15 +70,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100px; /* กำหนดความสูงของบล็อกนี้ให้เพียงพอ */
-            margin-top: 20px; /* เพิ่มระยะห่างจากปุ่มด้านบน */
+            height: 60px; /* ปรับขนาดบล็อกนี้ */
+            margin-top: 20px;
         }
 
         .fullscreen-btn {
             background-color: #333;
             color: white;
             padding: 10px 20px;
-            margin-top: 20px;
             border: none;
             cursor: pointer;
             font-size: 16px;
@@ -85,6 +85,52 @@
 
         .fullscreen-btn:hover {
             background-color: #555;
+        }
+
+        /* Media Queries สำหรับขนาดหน้าจอเล็ก */
+        @media (max-width: 768px) {
+            .video-title {
+                font-size: 20px;
+            }
+
+            .video-list button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+
+            .fullscreen-btn {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+
+            .video-container {
+                height: 50vh; /* ลดขนาดของวิดีโอ */
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                font-size: 18px;
+                padding: 15px;
+            }
+
+            .video-title {
+                font-size: 18px;
+            }
+
+            .video-list button {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+
+            .fullscreen-btn {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+
+            .video-container {
+                height: 45vh; /* ลดขนาดลงสำหรับมือถือ */
+            }
         }
     </style>
 </head>
